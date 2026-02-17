@@ -1,0 +1,73 @@
+@startuml
+
+
+package Practica1_ecommerce {
+
+abstract class Metodo_pago {
+    +procesarPago(importe : double) : void
+}
+
+class TarjetaCredito {
+    -tipos : String[]
+    -nro_tarjeta : String
+    -tipo : String
+    +TarjetaCredito(nro_tarjeta : String, tipo : String)
+    +getTipo() : String
+    +setTipo(tipo : String) : void
+    +getNro_tarjeta() : String
+    +setNro_tarjeta(nro_tarjeta : String) : void
+    +validadTarjeta(nro_tarjeta : String) : void
+    +procesarPago(importe : double) : void
+    +toString() : String
+}
+
+class Paypal {
+    -cuenta : String
+    -saldo : double
+    +Paypal(cuenta : String)
+    +getCuenta() : String
+    +setCuenta(cuenta : String) : void
+    +getSaldo() : double
+    +setSaldo(saldo : double) : void
+    +validarPaypal(cuenta : String) : void
+    +procesarPago(importe : double) : void
+    +toString() : String
+}
+
+class Bizum {
+    -telefono : String
+    -pin : int
+    +Bizum(telefono : String, pin : int)
+    +getTelefono() : String
+    +setTelefono(telefono : String) : void
+    +getPin() : int
+    +setPin(pin : int) : void
+    +validadBizum(telefono : String, pin : int) : void
+    +procesarPago(importe : double) : void
+    +toString() : String
+}
+
+class Tienda {
+    -sc : Scanner
+    +iniciarPago() : Metodo_pago
+    -configurarTarjeta() : Metodo_pago
+    -configurarPaypal() : Metodo_pago
+    -configurarBizum() : Metodo_pago
+}
+
+class AppEcommerce {
+    +main(args : String[]) : void
+}
+
+Metodo_pago <|-- TarjetaCredito
+Metodo_pago <|-- Paypal
+Metodo_pago <|-- Bizum
+
+AppEcommerce --> Tienda
+Tienda --> Metodo_pago
+
+}
+
+
+
+@enduml
