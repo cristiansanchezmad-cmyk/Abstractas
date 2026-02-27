@@ -17,4 +17,10 @@
 
 ### 4. Pruebas
 
-Captura de pantalla 2026-02-27 185915.png 
+Prueba de la APP Equipo
+
+![Captura](img3.png)
+
+Prueba Del Menu 1:
+
+
