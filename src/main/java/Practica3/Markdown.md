@@ -12,7 +12,7 @@
 ### 2. Programa principal 
 
 
-[Link a la clase Casa en *GitHub*](https://github.com/cristiansanchezmad-cmyk/Abstractas/blob/main/src/main/java/Practica3/AppEquipo.java)
+[Link a la clase Equipo en *GitHub*](https://github.com/cristiansanchezmad-cmyk/Abstractas/blob/main/src/main/java/Practica3/AppEquipo.java)
 
 
 ### 4. Pruebas
