@@ -3,35 +3,49 @@ package Practica3;
 import java.util.ArrayList;
 
 public class Jugador extends MutxameFC implements AccionesDeportivas,FuncionesIntegrantes{
-
+    /**
+     * Esta clase representa a un entrenador de un equipo.
+     * @author Christian Sanchez Madueño
+     * @version 1.0 (27/02/2026)
+     */
     private Equipo categoria;
     private int dorsal;
     private Posiciones posicion;
-    private static ArrayList<Integer> listaDorsales= new ArrayList<Integer>();
+    private static ArrayList<Jugador> listaDorsales= new ArrayList<Jugador>();
 
 
     public Jugador(String nombre, int edad, Integer dorsal, Posiciones posicion, Equipo categoria) {
         super(nombre, edad);
-        setDorsal(dorsal);
         this.posicion=posicion;
         this.categoria=categoria;
+        setDorsal(dorsal);
+
 
     }
+
+    /**
+     * Metodo que muesta como el jugador calienta.
+     */
 
     public void calentar(){
 
         System.out.println("El jugador comienza en calentar");
     }
-
+    /**
+     * Metodo que muesta como el jugador descansa.
+     */
     public void descansar(){
 
         System.out.println("El jugador sale a descansar");
 
     }
+    /**
+     * Metodo que muesta como el jugador mete gol.
+     */
 
     public void marcarGol(){
 
-        System.out.println("GOOOOOOOOOOL");
+        System.out.println("GOOOOOOOOOOL de "+this.getNombre());
 
     }
 
@@ -50,21 +64,32 @@ public class Jugador extends MutxameFC implements AccionesDeportivas,FuncionesIn
 
     public void setDorsal(Integer dorsal) {
 
+        boolean estado=false;
+        try {
+            for (Jugador j : listaDorsales){
+                if (dorsal== j.getDorsal() && categoria==j.getCategoria()){
 
-         try {
+                    estado=true;
 
-             if (!listaDorsales.contains(dorsal)) {
+                }
 
-                listaDorsales.add(dorsal);
+
+            }
+            if (estado) {
+
+                throw new ComprobarDorsal();
+            }else {
+
+                listaDorsales.add(this);
                 this.dorsal=dorsal;
-             }else {
-                 throw new ComprobarDorsal();
-             }
-         }catch (ComprobarDorsal comprobar ){
 
-             System.out.println(comprobar.getMessage());
+            }
+            
+        }catch (ComprobarDorsal comprobar ){
 
-         }
+            System.out.println(comprobar.getMessage());
+
+        }
 
     }
 
@@ -80,7 +105,9 @@ public class Jugador extends MutxameFC implements AccionesDeportivas,FuncionesIn
     @Override
     public String toString() {
         return "Jugador{" +
-                "categoria=" + categoria +
+                "nombre='" + getNombre() +
+                ", edad=" + getEdad() +
+                ", categoria=" + categoria +
                 ", dorsal=" + dorsal +
                 ", posicion=" + posicion +
                 '}';
@@ -111,6 +138,6 @@ public class Jugador extends MutxameFC implements AccionesDeportivas,FuncionesIn
     @Override
     public void celebrarGol() {
 
-        System.out.println("EL jugador celebra el gol quitándose la camiseta");
+        System.out.println("El jugador"+ this.getNombre()+"celebra el gol quitándose la camiseta");
     }
 }

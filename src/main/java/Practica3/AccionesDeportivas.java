@@ -1,7 +1,7 @@
 package Practica3;
 
-public interface AccionesDeportivas {
 
+public interface AccionesDeportivas {
     void entrenar();
     void jugarPartido(String rival);
 

@@ -1,7 +1,12 @@
 package Practica3;
 
-public class Entrenador extends MutxameFC implements AccionesDeportivas, FuncionesIntegrantes{
 
+public class Entrenador extends MutxameFC implements AccionesDeportivas, FuncionesIntegrantes{
+    /**
+     * Esta clase representa a un entrenador de un equipo.
+     * @author Christian Sanchez Madueño
+     * @version 1.0 (27/02/2026)
+     */
     private Equipo equipo;
     private String formacionPreferida;
 
@@ -9,8 +14,7 @@ public class Entrenador extends MutxameFC implements AccionesDeportivas, Funcion
         super(nombre, edad);
 
         this.equipo=equipo;
-        this.formacionPreferida=formacionPreferida;
-
+        setFormacionPreferida(formacionPreferida);
     }
 
 
@@ -28,9 +32,27 @@ public class Entrenador extends MutxameFC implements AccionesDeportivas, Funcion
     }
 
     public void setFormacionPreferida(String formacionPreferida) {
-        this.formacionPreferida = formacionPreferida;
+
+        try {
+
+            if (formacionPreferida.matches("\\d-\\d-\\d")) {
+
+                this.formacionPreferida=formacionPreferida;
+
+            }else {
+                throw new ValidarFormacion();
+            }
+        }catch (ValidarFormacion validarFormacion ){
+
+            System.out.println(validarFormacion.getMessage());
+
+        }
+
     }
 
+    /**
+     * Metodo que muesta como el el entrenador planifica el entrenamiento.
+     */
     public void planificarEntrenamiento(){
 
         System.out.println("Comienza a planificar el entrenamiento");
@@ -42,11 +64,17 @@ public class Entrenador extends MutxameFC implements AccionesDeportivas, Funcion
     }
 
 
+    /**
+     * Metodo que muesta como el entrenador comienza con el entrenamiento
+     */
     @Override
     public void entrenar() {
         System.out.println("El entrenador comienza a explicar el entrenamiento");
     }
 
+    /**
+     * Metodo que muesta al entrenador en el partido
+     */
     @Override
     public void jugarPartido(String rival) {
         System.out.println("EL entrenador "+this.getNombre()+" está dirigiendo el partido desde el banquillo ");
@@ -61,16 +89,26 @@ public class Entrenador extends MutxameFC implements AccionesDeportivas, Funcion
     }
 
 
+    /**
+     * Metodo que muesta como el entrenador se concentra
+     */
     @Override
     public void concentrarse() {
         System.out.println("El entrenador "+this.getNombre()+" se concentrar en sus jugadors mientras ve el partido");
     }
 
+    /**
+     * Metodo que muesta como el entrenador viaja al lugar del partido
+     */
     @Override
     public void viajar(String ciudad) {
 
         System.out.println("El entrenador "+this.getNombre()+" viaja con su equipo al campo donde se celebrará el partido");
     }
+
+    /**
+     * Metodo que muesta como el entrenador celebra el gol
+     */
 
     @Override
     public void celebrarGol() {

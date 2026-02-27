@@ -26,9 +26,6 @@ public abstract class MutxameFC {
         this.edad = edad;
     }
 
-
-
-
     @Override
     public String toString() {
         return "MutxameFC{" +

@@ -1,7 +1,13 @@
 package Practica3;
 
+
 public class Masajista extends MutxameFC {
 
+    /**
+     * Esta clase representa a un acompañante de un jugador del equipo.
+     * @author Christian Sanchez Madueño
+     * @version 1.0 (27/02/2026)
+     */
     private String titulacion;
     private int anosExperiencia;
 
@@ -11,11 +17,11 @@ public class Masajista extends MutxameFC {
         this.anosExperiencia=anosExperiencia;
     }
 
-public  void darMasajes(){
+    public  void darMasajes(Jugador jugador){
 
-    System.out.println("El masajista comienza con su masaje...");
+        System.out.println("El masajista comienza con su masaje...");
 
-}
+    }
     public int getAnosExperiencia() {
         return anosExperiencia;
     }
