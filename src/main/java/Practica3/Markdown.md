@@ -21,6 +21,9 @@ Prueba de la APP Equipo
 
 ![Captura](img3.png)
 
-Prueba Del Menu 1:
+Prueba Del Menu 2:
+
+
+![Captura](metod2.png)
 
 
