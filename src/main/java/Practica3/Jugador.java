@@ -84,7 +84,7 @@ public class Jugador extends MutxameFC implements AccionesDeportivas,FuncionesIn
                 this.dorsal=dorsal;
 
             }
-            
+
         }catch (ComprobarDorsal comprobar ){
 
             System.out.println(comprobar.getMessage());

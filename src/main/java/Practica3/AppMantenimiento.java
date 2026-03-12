@@ -126,11 +126,12 @@ public class AppMantenimiento {
         System.out.println("[3]. Dorsal");
         System.out.println("[4]. Posicion");
         System.out.println("[5]. Categoria");
+        String datojug = teclado.next();
+
 
         teclado.nextLine();
 
         System.out.println("Escribe que lo que quieres añadir");
-        String datojug = teclado.next();
 
         switch (datojug) {
             case "1":
